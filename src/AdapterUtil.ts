@@ -8,6 +8,8 @@ export const height: number = Dimensions.get('window').height;
 
 export const statusBarHeight = getStatusBarHeight();
 
+// alert(`${statusBarHeight}`);
+
 export const unitWidth = width / designWidth;
 export const unitHeight = height / designHeight;
 

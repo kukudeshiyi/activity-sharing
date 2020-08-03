@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, TouchableHighlight, ImageBackground, TextInput, Image } from 'react-native';
 import { unitWidth, unitHeight } from '../../AdapterUtil';
+import SvgUri from 'expo-svg-uri';
 interface LoginProps {
 
 }
@@ -24,10 +25,10 @@ class Login extends React.Component<LoginProps, LoginState>{
     }
   }
   public handlePress = () => {
-    const { account, password } = this.state;
+    const { account, password, accountFoucs, passwordFoucs } = this.state;
     // 验证
     // 提交
-    alert(`account:${account},password:${password}`);
+    alert(`account:${account},password:${password}--------${accountFoucs}------${passwordFoucs}`);
   }
   public handleAccountChange = (value: string) => {
     this.setState(() => ({
@@ -58,9 +59,17 @@ class Login extends React.Component<LoginProps, LoginState>{
           <View style={styles.logInContentWrapper}>
             <Text style={styles.logInSlogan}>FIND THE MOST LOVED ACTIVITIES</Text>
             <Text style={styles.logInTitle}>BLACK CAT</Text>
-            {/* <Image source={require('../../../assets/logo_cat.svg')} style={styles.logoCat} /> */}
-            <TextInput style={[styles.logInInput]} value={account} placeholder="Account" onChangeText={this.handleAccountChange} onFocus={() => this.handleAccountFocus(true)} onBlur={() => this.handleAccountFocus(false)}></TextInput>
-            <TextInput style={styles.logInInput} value={password} placeholder="Password" onChangeText={this.handlePasswordChange} onFocus={() => this.handleAccountFocus(true)} onBlur={() => this.handlePasswordFocus(false)}></TextInput>
+            {/* <Image source={} style={styles.logoCat} /> */}
+            <View style={styles.logoCatWrapper}>
+              <SvgUri source={require('../../../assets/logo_cat.svg')} width={unitWidth * 40} height={unitWidth * 40} style={styles.logoCat} />
+            </View>
+            <View style={styles.inputWrapper}>
+              <TextInput style={[styles.logInInput, accountFoucs ? styles.logInInputFocus : {}]} value={account} placeholderTextColor={'#AC8EC9'} placeholder="Account" onChangeText={this.handleAccountChange} onFocus={() => this.handleAccountFocus(true)} onBlur={() => this.handleAccountFocus(false)}>
+              </TextInput>
+              <SvgUri source={require('../../../assets/logo_cat.svg')} width={unitWidth * 13} height={unitWidth * 13} style={styles.accountIcon} />
+              <TextInput style={[styles.logInInput, styles.inputSpace, passwordFoucs ? styles.logInInputFocus : {}]} value={password} placeholderTextColor={'#AC8EC9'} placeholder="Password" onChangeText={this.handlePasswordChange} onFocus={() => this.handlePasswordFocus(true)} onBlur={() => this.handlePasswordFocus(false)}></TextInput>
+              <SvgUri source={require('../../../assets/logo_cat.svg')} width={unitWidth * 13} height={unitWidth * 13} style={styles.passwordIcon} />
+            </View>
           </View>
           <ImageBackground source={require('../../../assets/login_bg.jpg')} style={styles.logInBg}>
           </ImageBackground>
@@ -93,36 +102,68 @@ const styles = StyleSheet.create({
     zIndex: 1
   },
   logInSlogan: {
-    fontSize: unitHeight * 16,
+    fontSize: unitWidth * 16,
     color: '#D5EF7F',
     textAlign: 'center',
     marginTop: unitHeight * 69
   },
   logInTitle: {
-    fontSize: unitHeight * 24,
+    fontSize: unitWidth * 24,
     color: '#D5EF7F',
     textAlign: 'center',
     fontWeight: "700",
     marginTop: unitHeight * 16
   },
+  logoCatWrapper: {
+    marginTop: unitHeight * 37,
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    width: unitWidth * 64,
+    height: unitWidth * 64,
+    borderRadius: 50,
+    borderWidth: 2,
+    borderColor: '#D5EF7F',
+    position: 'relative',
+    // flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
   logoCat: {
-    // backgroundColor: 'red'
+    // textAlign: 'center'
+    // marginLeft: 'auto',
+    // marginRight: 'auto'
+    marginTop: -unitWidth * 10
+  },
+  inputWrapper: {
+    marginTop: unitHeight * 118
   },
   logInInput: {
     width: unitWidth * 240,
     height: unitHeight * 40,
     borderWidth: 2,
     borderColor: '#FFFFFF',
-    borderRadius: 20,
-    // backgroundColor: 'red',
+    borderRadius: unitHeight * 20,
     marginLeft: 'auto',
     marginRight: 'auto',
-    marginTop: 50,
     fontSize: unitHeight * 16,
-    // color: '#453257',
-    color: 'red',
     paddingLeft: unitWidth * 34,
-    // backgroundColor: '#D3C1E5'
+  },
+  logInInputFocus: {
+    backgroundColor: 'rgba(255,255,255,0.2)',
+    color: '#FFFFFF'
+  },
+  inputSpace: {
+    marginTop: unitHeight * 16
+  },
+  accountIcon: {
+    position: 'absolute',
+    left: unitWidth * 50,
+    top: unitHeight * 13
+  },
+  passwordIcon: {
+    position: 'absolute',
+    left: unitWidth * 50,
+    top: unitHeight * 68
   },
   logInInputFocus: {
     backgroundColor: '#FFFFFF',

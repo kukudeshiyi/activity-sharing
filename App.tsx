@@ -1,8 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 import Login from './src/components/login';
 import Home from './src/components/home';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
 // export default function App() {
 //   return (
 //     <View style={styles.container}>
@@ -12,10 +15,21 @@ import Home from './src/components/home';
 //     </View>
 //   );
 // }
+const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
+
 export default function App() {
+  const [isLogIn, setIsLogIn] = useState(true);
   return (
-    // <Login />
-    <Home />
+    <NavigationContainer>
+      {
+        isLogIn ? (
+          <Drawer.Navigator drawerType="slide" drawerContent={() => <Text>califonia love</Text>}>
+            <Drawer.Screen name="Home" component={Home} />
+          </Drawer.Navigator>
+        ) : <Login />
+      }
+    </NavigationContainer >
   );
 }
 const styles = StyleSheet.create({
