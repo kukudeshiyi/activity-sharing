@@ -1,55 +1,88 @@
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, TouchableHighlight, ImageBackground, TextInput, Image } from 'react-native';
-import { unitWidth, unitHeight } from '../../AdapterUtil';
-import SvgUri from 'expo-svg-uri';
-export default function ListItem() {
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  TouchableHighlight,
+  ImageBackground,
+  TextInput,
+  Image,
+} from "react-native";
+import { unitWidth, unitHeight } from "../../AdapterUtil";
+import SvgUri from "expo-svg-uri";
+interface PropsType {
+  data: { [key: string]: any };
+}
+export default function ListItem(props: PropsType) {
+  const { data } = props;
+  const { creator, channel, images } = data;
   return (
     <View style={styles.listItemWrapper}>
       <View style={styles.bottomLine}>
         <View style={styles.top}>
           <View style={styles.userInfoWrapper}>
             <View style={styles.avatarMask}>
-              <Image source={require('../../../assets/login_bg.jpg')} style={styles.avatar} />
+              <Image
+                source={require("../../../assets/login_bg.jpg")}
+                style={styles.avatar}
+              />
             </View>
-            <Text style={styles.userName}>Username</Text>
+            <Text style={styles.userName}>{creator.username}</Text>
           </View>
-          <Text style={styles.channelName}>channel name</Text>
+          <Text style={styles.channelName}>{channel.name}</Text>
         </View>
 
         <View style={styles.activityInfoWrapper}>
-
           <View style={styles.activityInfo}>
             <View>
-              <Text style={styles.title}>Activity Title Name Make it Longer May Longer than One Line</Text>
+              <Text style={styles.title}>{data.name}</Text>
               <View>
-                <Text style={styles.dateInfo}>14 May 2016 12:12 - 14 May 2016 18:00</Text>
+                <Text style={styles.dateInfo}>
+                  {`${data.begin_time}~${data.end_time}`}
+                </Text>
               </View>
             </View>
-            <Text style={styles.content}>Content good morning up koko canon jack stephen curry mongo simida</Text>
+            <Text style={styles.content}>{data.description}</Text>
             <View style={styles.oprationsWrapper}>
               <TouchableHighlight>
                 <View style={styles.goingWrapper}>
-                  <SvgUri source={require('../../../assets/check.svg')} width={unitWidth * 12} height={unitHeight * 10} style={styles.goingIcon} />
+                  <SvgUri
+                    source={require("../../../assets/check.svg")}
+                    width={unitWidth * 12}
+                    height={unitHeight * 10}
+                    style={styles.goingIcon}
+                  />
                   <Text style={styles.add}>I am going!</Text>
                 </View>
               </TouchableHighlight>
               <TouchableHighlight>
                 <View style={styles.likeWrapper}>
-                  <SvgUri source={require('../../../assets/like.svg')} width={unitWidth * 12} height={unitHeight * 10} style={styles.likeIcon} />
+                  <SvgUri
+                    source={require("../../../assets/like.svg")}
+                    width={unitWidth * 12}
+                    height={unitHeight * 10}
+                    style={styles.likeIcon}
+                  />
                   <Text style={styles.like}>I like it</Text>
                 </View>
               </TouchableHighlight>
             </View>
           </View>
-
-          <View>
-            <Image source={require('../../../assets/login_bg.jpg')} style={styles.activityImage} />
-          </View>
-
+          {Array.isArray(images) && images.length > 0 ? (
+            <View>
+              <Image
+                source={{
+                  uri: images[0],
+                }}
+                style={styles.activityImage}
+              />
+            </View>
+          ) : null}
         </View>
       </View>
     </View>
-  )
+  );
 }
 const styles = StyleSheet.create({
   listItemWrapper: {
@@ -58,96 +91,96 @@ const styles = StyleSheet.create({
   },
   bottomLine: {
     borderBottomWidth: unitHeight * 1,
-    borderBottomColor: '#E8E8E8',
+    borderBottomColor: "#E8E8E8",
     paddingBottom: unitHeight * 18,
-    paddingRight: unitWidth * 16
+    paddingRight: unitWidth * 16,
   },
   top: {
     // flex: 1,
-    flexDirection: 'row',
+    flexDirection: "row",
     // alignItems: 'center'
-    justifyContent: 'space-between'
+    justifyContent: "space-between",
   },
   userInfoWrapper: {
     // display: 'flex',
     // justifyContent,
-    flexDirection: 'row',
+    flexDirection: "row",
     // justifyContent:,
-    alignItems: 'center'
+    alignItems: "center",
   },
   userName: {
     fontSize: unitWidth * 12,
-    color: '#67616D',
-    marginLeft: unitWidth * 8
+    color: "#67616D",
+    marginLeft: unitWidth * 8,
   },
   avatarMask: {
     borderRadius: unitWidth * 10,
-    overflow: 'hidden',
+    overflow: "hidden",
     height: unitWidth * 20,
-    width: unitWidth * 20
+    width: unitWidth * 20,
   },
   avatar: {
     height: unitWidth * 20,
-    width: unitWidth * 20
+    width: unitWidth * 20,
   },
   channelName: {
     borderWidth: 1,
     borderRadius: unitHeight * 10,
-    textAlign: 'center',
+    textAlign: "center",
     lineHeight: unitHeight * 20,
-    color: '#D3C1E5',
-    paddingHorizontal: unitWidth * 8
+    color: "#D3C1E5",
+    paddingHorizontal: unitWidth * 8,
   },
   activityInfoWrapper: {
-    flexDirection: 'row',
-    marginTop: unitHeight * 8
+    flexDirection: "row",
+    marginTop: unitHeight * 8,
   },
   activityInfo: {
-    flex: 1
+    flex: 1,
   },
   title: {
     fontSize: unitWidth * 18,
-    color: '#453257'
+    color: "#453257",
   },
   dateInfo: {
     marginTop: unitHeight * 8,
     fontSize: unitWidth * 12,
-    color: '#8560A9'
+    color: "#8560A9",
   },
   content: {
     marginTop: unitHeight * 12,
     fontSize: unitWidth * 14,
-    color: '#67616D'
+    color: "#67616D",
   },
   oprationsWrapper: {
-    flexDirection: 'row',
-    marginTop: unitHeight * 12
+    flexDirection: "row",
+    marginTop: unitHeight * 12,
   },
   add: {
     fontSize: unitWidth * 12,
-    color: '#454357'
+    color: "#454357",
   },
   like: {
     fontSize: unitWidth * 12,
-    color: '#454357'
+    color: "#454357",
   },
   activityImage: {
     width: unitWidth * 64,
-    height: unitWidth * 64
+    height: unitWidth * 64,
   },
   goingWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center'
+    flexDirection: "row",
+    alignItems: "center",
   },
   likeWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginLeft: unitWidth * 31
+    flexDirection: "row",
+    alignItems: "center",
+    marginLeft: unitWidth * 31,
   },
   goingIcon: {
-    marginRight: unitWidth * 6
+    marginRight: unitWidth * 6,
   },
   likeIcon: {
-    marginRight: unitWidth * 6
-  }
-})
+    marginRight: unitWidth * 6,
+  },
+});

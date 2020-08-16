@@ -2,6 +2,14 @@
 # yarn lockfile v1
 
 
+"@ahooksjs/use-request@^2.3.0":
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/@ahooksjs/use-request/-/use-request-2.5.0.tgz#a818ad5dc5e6d64ffafdf3058886a69912af8289"
+  integrity sha512-lZJ3ArQkQKS9vqASSTFcrTrHrB5L8vzCH7T8CCDdlvyiCSC4cmc9j10BneNKrlxGJCiDnSuQHhA5cVyecr9R1g==
+  dependencies:
+    lodash.debounce "^4.0.8"
+    lodash.throttle "^4.1.1"
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.10.4":
   version "7.10.4"
   resolved "https://registry.npm.taobao.org/@babel/code-frame/download/@babel/code-frame-7.10.4.tgz?cache=0&sync_timestamp=1593522948158&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fcode-frame%2Fdownload%2F%40babel%2Fcode-frame-7.10.4.tgz#168da1a36e90da68ae8d49c0f1b48c7c6249213a"
@@ -1271,6 +1279,13 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
+"@react-native-community/async-storage@^1.11.0":
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/@react-native-community/async-storage/-/async-storage-1.11.0.tgz#bf81b8813080846f150c67f531987c429b442166"
+  integrity sha512-Pq9LlmvtCEKAGdkyrgTcRxNh2fnHFykEj2qnRYijOl1pDIl2MkD5IxaXu5eOL0wgOtAl4U//ff4z40Td6XR5rw==
+  dependencies:
+    deep-assign "^3.0.0"
+
 "@react-native-community/cli-debugger-ui@^4.9.0":
   version "4.9.0"
   resolved "https://registry.npm.taobao.org/@react-native-community/cli-debugger-ui/download/@react-native-community/cli-debugger-ui-4.9.0.tgz?cache=0&sync_timestamp=1589812360800&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40react-native-community%2Fcli-debugger-ui%2Fdownload%2F%40react-native-community%2Fcli-debugger-ui-4.9.0.tgz#4177764ba69243c97aa26829d59d9501acb2bd71"
@@ -1532,6 +1547,11 @@
     "@types/istanbul-lib-coverage" "*"
     "@types/istanbul-lib-report" "*"
 
+"@types/js-cookie@^2.2.6":
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/@types/js-cookie/-/js-cookie-2.2.6.tgz#f1a1cb35aff47bc5cfb05cb0c441ca91e914c26f"
+  integrity sha512-+oY0FDTO2GYKEV0YPvSshGq9t7YozVkgvXLty7zogQNuCxBhT9/3INX9Q7H1aRZ4SUDRXAKlJuA4EA5nTt7SNw==
+
 "@types/node@*":
   version "14.0.23"
   resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-14.0.23.tgz?cache=0&sync_timestamp=1594656014203&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40types%2Fnode%2Fdownload%2F%40types%2Fnode-14.0.23.tgz#676fa0883450ed9da0bb24156213636290892806"
@@ -1654,6 +1674,21 @@ acorn@^7.1.0:
   version "7.3.1"
   resolved "https://registry.npm.taobao.org/acorn/download/acorn-7.3.1.tgz?cache=0&sync_timestamp=1591869398104&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Facorn%2Fdownload%2Facorn-7.3.1.tgz#85010754db53c3fbaf3b9ea3e083aa5c5d147ffd"
   integrity sha1-hQEHVNtTw/uvO56j4IOqXF0Uf/0=
+
+ahooks@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/ahooks/-/ahooks-2.5.0.tgz#94f6936217f230870629b6f154093b340531e9ba"
+  integrity sha512-ixe/dmX/U741f4o0xFTCrghwzjHm4n9CF9d0U3e2YwM0ridIWVDigUQItMGrPlUpaWFTQwZlejpdFeIVzFCsMw==
+  dependencies:
+    "@ahooksjs/use-request" "^2.3.0"
+    "@types/js-cookie" "^2.2.6"
+    intersection-observer "^0.7.0"
+    js-cookie "^2.2.1"
+    lodash.debounce "^4.0.8"
+    lodash.isequal "^4.5.0"
+    lodash.throttle "^4.1.1"
+    resize-observer-polyfill "^1.5.1"
+    screenfull "^5.0.0"
 
 ajv@^6.5.5:
   version "6.12.3"
@@ -3882,6 +3917,11 @@ inquirer@^3.0.6:
     strip-ansi "^4.0.0"
     through "^2.3.6"
 
+intersection-observer@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/intersection-observer/-/intersection-observer-0.7.0.tgz#ee16bee978db53516ead2f0a8154b09b400bbdc9"
+  integrity sha512-Id0Fij0HsB/vKWGeBe9PxeY45ttRiBmhFyyt/geBdDHBYNctMRTE3dC1U3ujzz3lap+hVXlEcVaB56kZP/eEUg==
+
 invariant@^2.2.2, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.npm.taobao.org/invariant/download/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
@@ -4689,6 +4729,11 @@ jetifier@^1.6.2:
   resolved "https://registry.npm.taobao.org/jetifier/download/jetifier-1.6.6.tgz?cache=0&sync_timestamp=1591882098703&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fjetifier%2Fdownload%2Fjetifier-1.6.6.tgz#fec8bff76121444c12dc38d2dad6767c421dab68"
   integrity sha1-/si/92EhREwS3DjS2tZ2fEIdq2g=
 
+js-cookie@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/js-cookie/-/js-cookie-2.2.1.tgz#69e106dc5d5806894562902aa5baec3744e9b2b8"
+  integrity sha512-HvdH2LzI/EAZcUwA8+0nKNtWHqS+ZmijLA30RwZA0bo7ToCckjK5MkGhjED9KoRcXO6BaGI3I9UIzSA1FKFPOQ==
+
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://registry.npm.taobao.org/js-tokens/download/js-tokens-4.0.0.tgz?cache=0&sync_timestamp=1586796260005&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fjs-tokens%2Fdownload%2Fjs-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
@@ -4926,6 +4971,16 @@ locate-path@^5.0.0:
   integrity sha1-Gvujlq/WdqbUJQTQpno6frn2KqA=
   dependencies:
     p-locate "^4.1.0"
+
+lodash.debounce@^4.0.8:
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/lodash.debounce/-/lodash.debounce-4.0.8.tgz#82d79bff30a67c4005ffd5e2515300ad9ca4d7af"
+  integrity sha1-gteb/zCmfEAF/9XiUVMArZyk168=
+
+lodash.isequal@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
+  integrity sha1-QVxEePK8wwEgwizhDtMib30+GOA=
 
 lodash.sortby@^4.7.0:
   version "4.7.0"
@@ -6407,6 +6462,11 @@ reselect@^3.0.1:
   resolved "https://registry.npm.taobao.org/reselect/download/reselect-3.0.1.tgz?cache=0&sync_timestamp=1581977983009&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Freselect%2Fdownload%2Freselect-3.0.1.tgz#efdaa98ea7451324d092b2b2163a6a1d7a9a2147"
   integrity sha1-79qpjqdFEyTQkrKyFjpqHXqaIUc=
 
+resize-observer-polyfill@^1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/resize-observer-polyfill/-/resize-observer-polyfill-1.5.1.tgz#0e9020dd3d21024458d4ebd27e23e40269810464"
+  integrity sha512-LwZrotdHOo12nQuZlHEmtuXdqGoOD0OhaxopaNFxWzInpEgaLWoVuAMbTzixuosCx2nEG58ngzW3vxdWoxIgdg==
+
 resolve-cwd@^3.0.0:
   version "3.0.0"
   resolved "https://registry.npm.taobao.org/resolve-cwd/download/resolve-cwd-3.0.0.tgz#0f0075f1bb2544766cf73ba6a6e2adfebcb13f2d"
@@ -6558,6 +6618,11 @@ scheduler@0.17.0, scheduler@^0.17.0:
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
+
+screenfull@^5.0.0:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/screenfull/-/screenfull-5.0.2.tgz#b9acdcf1ec676a948674df5cd0ff66b902b0bed7"
+  integrity sha512-cCF2b+L/mnEiORLN5xSAz6H3t18i2oHh9BA8+CQlAh5DRw2+NFAGQJOSYbcGw8B2k04g/lVvFcfZ83b3ysH5UQ==
 
 "semver@2 || 3 || 4 || 5", semver@^5.1.0, semver@^5.4.1, semver@^5.5.0, semver@^5.5.1, semver@^5.6.0:
   version "5.7.1"
